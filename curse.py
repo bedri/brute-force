@@ -21,6 +21,24 @@ def apple_check():
   for word in curse:
     print(word)
 
-def urban_dictionary():
-  pass
-apple_check()
+def unix_check():
+  wordlist = open('words.txt')
+  wordlist = wordlist.read()
+  wordlist = wordlist.split('\n')
+  curse = []
+  for word in wordlist:
+    url = 'http://www.wdyl.com/profanity?q=' + word
+    response = urllib.request.urlopen(url)
+    response = json.loads(response.read().decode())
+    if response['response']=='true':
+      print(word)
+      curse.append(word)
+      continue
+    print(word)
+    print(response)
+    continue
+  print ('\n\n\n')
+  for word in curse:
+    print(word)
+
+unix_check()
