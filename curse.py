@@ -1,6 +1,5 @@
 import urllib.request, urllib.error, urllib.parse
 import json
-from subprocess import Popen, PIPE
 
 def apple_check():
   wordlist = open('/usr/share/dict/words')
@@ -41,14 +40,5 @@ def unix_check():
   print ('\n\n\n')
   for word in curse:
     print(word)
-def randomdict():
-    spell = Popen(['exec.sh'], stdin = PIPE, stdout=PIPE, stderr = PIPE)
-    output, err = p.communicate(b"input data that is passed to subprocess' stdin")
-    rc = p.returncode
-    print(rc)
-    spell = str(rc)
-    print(spell)
-    spell = spell.split('define.php?term=')
-    print(spell)
-    #print(spell[1])
-randomdict()
+
+unix_check()
