@@ -1,7 +1,7 @@
 import urllib.request, urllib.error, urllib.parse
 import json
 import threading
- 
+import webbrowser 
 def test_word(word):
 	url = 'http://tinyurl.com/' + word
 	try:
@@ -40,7 +40,7 @@ def unix_check():
 		else:
 			words.append([word, response])
 			#print ("word is " + str(word) + " and url is " + str(response))
-			print(response)
+			webbrowser.open_new_tab(response)
 	for word in words:
 		print ("word is " +  word[0] + " and response is " + word[1])
 		#print(word[1])

@@ -1,7 +1,7 @@
 import urllib.request, urllib.error, urllib.parse
 import json
 import threading
- 
+import webbrowser 
 def test_word(word):
 	url = 'http://shoutkey.com/' + word
 	response = urllib.request.urlopen(url)
@@ -35,6 +35,7 @@ def unix_check():
 			continue
 		else:
 			words.append([word, response])
+			webbrowser.opennewtab(response)
 			print ("word is " + str(word) + " and url is " + str(response))
 	for word in words:
 		print ("word is " +  word[0] + " and response is " + word[1])
